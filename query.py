@@ -35,16 +35,20 @@ datos_trafico=['data\Trafico\Anthem_CTC_Traffic_012051.csv','data\Trafico\Anthem
 'data\Trafico\Anthem_CTC_Traffic_102051.csv','data\Trafico\Anthem_CTC_Traffic_112051.csv','data\Trafico\Anthem_CTC_Traffic_122051.csv',]
 
 datos_ubicaciones=['']
+def contenedores():
+    datos_contenedores = (spark.read.csv(datos[7],header=True, inferSchema=True, sep =";", encoding='Latin1'))
 
-datos_contenedores = (spark.read.csv(datos[7],header=True, inferSchema=True, sep =";", encoding='Latin1'))
+    datos_contenedores.createOrReplaceTempView('Contenedores')
 
-datos_contenedores.createOrReplaceTempView('Contenedores')
+    datos_contenedores.show()
 
-datos_contenedores.show()
+    result = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor`, SUM(Cantidad)OVER(PARTITION BY `Tipo Contenedor`, Distrito) AS Cantidad FROM Contenedores ORDER BY Cantidad DESC''')
 
-result = spark.sql('''SELECT DISTINCT `Tipo Contenedor`, SUM(Cantidad)OVER(PARTITION BY `Tipo Contenedor`) AS Cantidad FROM Contenedores ORDER BY Cantidad DESC''')
+    result.show()
 
-result.show()
+    pandas_df = result.toPandas()
+    print(type(pandas_df))
+    return(pandas_df)
 
 datos_accidentes = (spark.read.csv(datos[0],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
 
