@@ -1,0 +1,250 @@
+cod_distrito;tipo_accidente;Cantidad
+;Colisión lateral;2
+1.0;Colisión fronto-lateral;326
+1.0;Atropello a animal;2
+1.0;Solo salida de la vía;3
+1.0;Atropello a persona;109
+1.0;Colisión múltiple;61
+1.0;Otro;14
+1.0;Caída;153
+1.0;Despeñamiento;1
+1.0;Colisión frontal;45
+1.0;Choque contra obstáculo fijo;163
+1.0;Alcance;347
+1.0;Colisión lateral;294
+2.0;Colisión múltiple;96
+2.0;Vuelco;3
+2.0;Colisión fronto-lateral;308
+2.0;Choque contra obstáculo fijo;149
+2.0;Colisión frontal;12
+2.0;Caída;108
+2.0;Atropello a persona;105
+2.0;Alcance;385
+2.0;Otro;3
+2.0;Solo salida de la vía;1
+2.0;Colisión lateral;181
+3.0;Atropello a persona;98
+3.0;Choque contra obstáculo fijo;131
+3.0;Caída;96
+3.0;Colisión múltiple;170
+3.0;Alcance;490
+3.0;Colisión lateral;193
+3.0;Colisión frontal;31
+3.0;Solo salida de la vía;2
+3.0;Colisión fronto-lateral;301
+3.0;Vuelco;2
+3.0;Atropello a animal;3
+3.0;Otro;13
+4.0;Colisión múltiple;161
+4.0;Alcance;598
+4.0;Colisión frontal;35
+4.0;Solo salida de la vía;5
+4.0;Colisión fronto-lateral;596
+4.0;Colisión lateral;457
+4.0;Vuelco;2
+4.0;Caída;247
+4.0;Choque contra obstáculo fijo;233
+4.0;Atropello a persona;133
+4.0;Atropello a animal;2
+4.0;Otro;17
+5.0;Vuelco;6
+5.0;Atropello a animal;4
+5.0;Atropello a persona;101
+5.0;Otro;23
+5.0;Solo salida de la vía;2
+5.0;Alcance;549
+5.0;Colisión lateral;427
+5.0;Caída;149
+5.0;Colisión fronto-lateral;438
+5.0;Despeñamiento;1
+5.0;Colisión frontal;26
+5.0;Colisión múltiple;97
+5.0;Choque contra obstáculo fijo;261
+6.0;Colisión lateral;266
+6.0;Alcance;353
+6.0;Colisión fronto-lateral;401
+6.0;Colisión frontal;43
+6.0;Choque contra obstáculo fijo;132
+6.0;Caída;149
+6.0;Atropello a animal;2
+6.0;Atropello a persona;131
+6.0;Vuelco;1
+6.0;Colisión múltiple;103
+6.0;Otro;17
+7.0;Choque contra obstáculo fijo;170
+7.0;Atropello a persona;90
+7.0;Colisión fronto-lateral;435
+7.0;Alcance;311
+7.0;Colisión lateral;201
+7.0;Colisión frontal;15
+7.0;Solo salida de la vía;3
+7.0;Otro;7
+7.0;Vuelco;4
+7.0;Colisión múltiple;96
+7.0;Caída;159
+8.0;Colisión frontal;50
+8.0;Colisión lateral;217
+8.0;Colisión fronto-lateral;410
+8.0;Caída;129
+8.0;Solo salida de la vía;10
+8.0;Otro;10
+8.0;Alcance;419
+8.0;Atropello a animal;7
+8.0;Colisión múltiple;101
+8.0;Atropello a persona;116
+8.0;Choque contra obstáculo fijo;313
+8.0;Vuelco;4
+9.0;Vuelco;23
+9.0;Atropello a persona;77
+9.0;Caída;170
+9.0;Atropello a animal;7
+9.0;Otro;19
+9.0;Choque contra obstáculo fijo;284
+9.0;Colisión fronto-lateral;368
+9.0;Colisión frontal;49
+9.0;Solo salida de la vía;19
+9.0;Colisión lateral;185
+9.0;Alcance;414
+9.0;Colisión múltiple;141
+10.0;Choque contra obstáculo fijo;300
+10.0;Colisión lateral;170
+10.0;Otro;20
+10.0;Alcance;294
+10.0;Atropello a persona;109
+10.0;Colisión múltiple;127
+10.0;Colisión frontal;31
+10.0;Solo salida de la vía;7
+10.0;Caída;85
+10.0;Colisión fronto-lateral;340
+10.0;Atropello a animal;4
+10.0;Vuelco;18
+11.0;Otro;8
+11.0;Colisión múltiple;158
+11.0;Solo salida de la vía;1
+11.0;Vuelco;8
+11.0;Colisión frontal;68
+11.0;Atropello a animal;9
+11.0;Colisión fronto-lateral;508
+11.0;Colisión lateral;206
+11.0;Alcance;439
+11.0;Caída;97
+11.0;Atropello a persona;200
+11.0;Choque contra obstáculo fijo;374
+12.0;Colisión fronto-lateral;375
+12.0;Solo salida de la vía;1
+12.0;Colisión lateral;123
+12.0;Caída;32
+12.0;Alcance;217
+12.0;Choque contra obstáculo fijo;142
+12.0;Colisión múltiple;132
+12.0;Atropello a persona;103
+12.0;Vuelco;10
+12.0;Colisión frontal;71
+12.0;Otro;11
+13.0;Caída;76
+13.0;Alcance;644
+13.0;Choque contra obstáculo fijo;429
+13.0;Colisión frontal;80
+13.0;Colisión lateral;373
+13.0;Colisión fronto-lateral;611
+13.0;Atropello a animal;8
+13.0;Colisión múltiple;201
+13.0;Otro;15
+13.0;Solo salida de la vía;30
+13.0;Atropello a persona;158
+13.0;Vuelco;10
+14.0;Atropello a persona;42
+14.0;Colisión lateral;108
+14.0;Colisión múltiple;78
+14.0;Alcance;258
+14.0;Solo salida de la vía;16
+14.0;Otro;3
+14.0;Choque contra obstáculo fijo;169
+14.0;Atropello a animal;2
+14.0;Colisión fronto-lateral;225
+14.0;Colisión frontal;12
+14.0;Caída;48
+15.0;Colisión lateral;210
+15.0;Solo salida de la vía;4
+15.0;Otro;14
+15.0;Atropello a persona;104
+15.0;Atropello a animal;7
+15.0;Colisión frontal;31
+15.0;Colisión múltiple;196
+15.0;Choque contra obstáculo fijo;324
+15.0;Caída;109
+15.0;Alcance;500
+15.0;Colisión fronto-lateral;613
+15.0;Vuelco;13
+16.0;Alcance;180
+16.0;Colisión múltiple;45
+16.0;Caída;88
+16.0;Choque contra obstáculo fijo;274
+16.0;Solo salida de la vía;5
+16.0;Vuelco;7
+16.0;Colisión frontal;172
+16.0;Colisión fronto-lateral;453
+16.0;Atropello a animal;6
+16.0;Colisión lateral;171
+16.0;Atropello a persona;98
+16.0;Otro;9
+17.0;Colisión múltiple;82
+17.0;Atropello a animal;2
+17.0;Atropello a persona;91
+17.0;Otro;13
+17.0;Alcance;174
+17.0;Choque contra obstáculo fijo;171
+17.0;Colisión fronto-lateral;240
+17.0;Solo salida de la vía;7
+17.0;Vuelco;17
+17.0;Colisión frontal;26
+17.0;Caída;26
+17.0;Colisión lateral;122
+18.0;Colisión fronto-lateral;314
+18.0;Choque contra obstáculo fijo;154
+18.0;Colisión frontal;22
+18.0;Colisión lateral;129
+18.0;Alcance;167
+18.0;Vuelco;5
+18.0;Caída;44
+18.0;Atropello a persona;73
+18.0;Atropello a animal;1
+18.0;Colisión múltiple;47
+18.0;Solo salida de la vía;9
+18.0;Otro;11
+19.0;Atropello a animal;1
+19.0;Atropello a persona;46
+19.0;Colisión lateral;37
+19.0;Solo salida de la vía;5
+19.0;Choque contra obstáculo fijo;100
+19.0;Alcance;121
+19.0;Colisión fronto-lateral;154
+19.0;Otro;1
+19.0;Caída;35
+19.0;Vuelco;1
+19.0;Colisión múltiple;20
+19.0;Colisión frontal;11
+20.0;Colisión fronto-lateral;541
+20.0;Colisión múltiple;103
+20.0;Colisión lateral;223
+20.0;Otro;17
+20.0;Choque contra obstáculo fijo;275
+20.0;Vuelco;10
+20.0;Caída;91
+20.0;Alcance;347
+20.0;Atropello a animal;4
+20.0;Solo salida de la vía;17
+20.0;Atropello a persona;109
+20.0;Colisión frontal;41
+21.0;Atropello a animal;4
+21.0;Choque contra obstáculo fijo;117
+21.0;Caída;27
+21.0;Otro;6
+21.0;Colisión múltiple;16
+21.0;Alcance;87
+21.0;Vuelco;1
+21.0;Colisión frontal;28
+21.0;Atropello a persona;36
+21.0;Solo salida de la vía;4
+21.0;Colisión lateral;91
+21.0;Colisión fronto-lateral;128
