@@ -8,22 +8,36 @@ import numpy as np
 
 def seguridad():
 
-    # name = "Alcance.csv"
-    # name = "Colisión frontal.csv"
-    # name = "Vuelco.csv"
-    # name = "Atropello a animal.csv"
-    name = "Despeñamiento.csv"
+    name = "accidentesTipo.csv"
     df = pd.read_csv(
-        "output/accidentes/{}".format(name), header="infer", sep=";", encoding="UTF-8"
+        "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
     )
-    st.write(df)
+
+    option = st.selectbox(
+        "Qué tipo de accidente desea visualizar?",
+        (
+            "Colisión lateral",
+            "Colisión fronto-lateral",
+            "Atropello a animal",
+            "Solo salida de la vía",
+            "Atropello a persona",
+            "Colisión múltiple",
+            "Otro",
+            "Caída",
+            "Despeñamiento",
+            "Vuelco",
+        ),
+    )
+
+    df = df.where(df["tipo_accidente"] == option)
 
     with open("madrid_distritos.json") as f:
         madrid_distritos = json.load(f)
+
     m = folium.Map(location=[40.42, -3.70], zoom_start=10.45)
     folium.Choropleth(
-        geo_data=madrid_distritos,
         # topojson="objects.almeria_wm",
+        geo_data=madrid_distritos,
         name="choropleth",
         data=df,
         columns=["cod_distrito", "Cantidad"],
