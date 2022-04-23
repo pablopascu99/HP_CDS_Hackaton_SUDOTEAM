@@ -1,6 +1,11 @@
 import streamlit as st
 
 from pages.residuos import residuos
+from pages.trafico import trafico
+from pages.calidad import calidad
+from pages.seguridad import seguridad
+from pages.energias import energias
+from pages.sostenibilidad import sostenibilidad
 
 st.set_page_config(
     page_title="Sudo Team",
@@ -22,7 +27,6 @@ sections = [
 
 
 with st.sidebar:
-    # add_radio = st.radio("Índice", sections)
     add_radio = st.radio("Índice", sections)
 
 
@@ -39,20 +43,19 @@ if add_radio == "0. Introducción":
     )
 
 if add_radio == "1. Residuos":
-    st.write("uno")
     residuos()
 
 if add_radio == "2. Tráfico":
-    st.write("dos")
+    trafico()
 
 if add_radio == "3. Calidad de vida":
-    st.write("tres")
+    calidad()
 
 if add_radio == "4. Seguridad civil":
-    st.write("cuatro")
+    seguridad()
 
 if add_radio == "5. Energías renovables":
-    st.write("cinco")
+    energias()
 
 if add_radio == "6. Sostenibilidad":
-    st.write("seis")
+    sostenibilidad()
