@@ -53,9 +53,10 @@ def residuos():
                     name='Envases',
                     marker_color='yellow'
                     ))
-
+    st.write('##### Gráfico de distritos, clasificando contenedores dondes se visualiza la propoción Censo/Contenedores')
+    st.write()
     fig.update_layout(
-        title='Gráfico por distritos de tipos contenedores por densidad de población',
+        title='',
         xaxis_tickfont_size=14,
         yaxis=dict(
             title='Censo/Contenedores',
