@@ -4,6 +4,7 @@ import json
 from streamlit_folium import folium_static
 import folium
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def seguridad():
@@ -14,7 +15,16 @@ def seguridad():
         df = pd.read_csv(
             "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
         )
-        st.write(df)
+        df = df.head(10)
+        labels=df["HECHO-BOL"]
+        sizes = df["Cantidad"]
+
+        fig1, ax1 = plt.subplots()
+        ax1.pie(sizes, labels=labels,
+                shadow=True, startangle=60)
+        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+        st.pyplot(fig1)
 
     name = "accidentesTipo.csv"
     df = pd.read_csv(
