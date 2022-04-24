@@ -9,9 +9,10 @@ from query import accidenteletal
 
 def trafico():
 
-
     name = "Anthem_CTC_Taxi_ReservaParadas.csv"
-    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
+    df = pd.read_csv(
+        "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
+    )
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=11)
 
@@ -48,10 +49,30 @@ def trafico():
     folium_static(m)
 
     name2 = "letalidad_fecha.csv"
-    df2 = pd.read_csv("output/{}".format(name2), header="infer", sep=";", encoding="UTF-8")
+    df2 = pd.read_csv(
+        "output/{}".format(name2), header="infer", sep=";", encoding="UTF-8"
+    )
 
+    df2 = df2.set_index("fecha")
     st.write(df2)
-    df2 = df2.set_index('fecha')
+    option = st.selectbox(
+        "Elija un mes para ver en detalle",
+        (
+            "",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+        ),
+    )
+    df2 = df2.loc[df2.index.str.startswith(option)]
     chart_data = df2
     st.line_chart(chart_data)
-
