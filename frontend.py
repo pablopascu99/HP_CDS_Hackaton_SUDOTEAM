@@ -50,7 +50,9 @@ if add_radio == "0. Introducción":
 
      ⛏️ Tecnologias usadas: Python, Streamlit(React), PySpark, Github.
 
-     🚀 Espero que les guste. Abajo tienen el QR por si se quiere consultar en el móvil."""
+     🚀 Espero que les guste. Abajo tienen el QR por si se quiere consultar en el móvil.
+     
+     🔗 [bit.ly/sudoteam](bit.ly/sudoteam)"""
     )
 
     components.html(
