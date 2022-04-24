@@ -69,19 +69,6 @@ def densiConten():
 
     return(dense_conte.toPandas())
 
-def aforo():
-
-    spark = SparkSession.builder.master("local[*]").getOrCreate()
-
-    datos_contenedores = (spark.read.csv(datos[10],header=True, inferSchema=True, sep =";", encoding='Latin1'))
-
-    datos_contenedores.createOrReplaceTempView('Aforopeat')
-
-    dist_tipo = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor`, Count(*)OVER(PARTITION BY `Tipo Contenedor`, Distrito) AS Cantidad FROM Aforopeat ORDER BY Distrito, `Tipo Contenedor` ASC''')
-
-    dist_tipo.createOrReplaceTempView('dist_tipo')
-
-    dist_tipo.show()
 
 def bicis_personas():
 

@@ -7,7 +7,7 @@ from query import estacionamiento
 import json
 
 def bicis():
-    st.write(bicis_personas())
+    # st.write(bicis_personas())
     # st.write(estacionamiento())
     name = "dist_bicis.csv"
     df = pd.read_csv(

@@ -4,8 +4,7 @@ from pages.residuos import residuos
 from pages.trafico import trafico
 from pages.calidad import calidad
 from pages.seguridad import seguridad
-from pages.energias import energias
-from pages.sostenibilidad import sostenibilidad
+from pages.energias import paneles
 from pages.movilidad import bicis
 
 st.set_page_config(
@@ -16,7 +15,6 @@ st.set_page_config(
 hide_st_style = """
             <style>
             footer {visibility: hidden;}
-            header {visibility: hidden;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -33,8 +31,7 @@ sections = [
     "3. Calidad de vida",
     "4. Seguridad civil",
     "5. Energías renovables",
-    "6. Sostenibilidad",
-    "7. Movilidad y Poblacion",
+    "6. Movilidad y Poblacion",
 ]
 
 
@@ -68,10 +65,7 @@ if add_radio == "4. Seguridad civil":
     seguridad()
 
 if add_radio == "5. Energías renovables":
-    energias()
+    paneles()
 
-if add_radio == "6. Sostenibilidad":
-    sostenibilidad()
-
-if add_radio == "7. Movilidad y Poblacion":
+if add_radio == "6. Movilidad y Poblacion":
     bicis()
