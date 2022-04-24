@@ -3,8 +3,6 @@ import pandas as pd
 from streamlit_folium import folium_static
 import folium
 import json
-import numpy as np
-from query import accidenteletal
 
 
 def trafico():
@@ -26,12 +24,8 @@ def trafico():
             ),
         ).add_to(m)
 
-    # with open("madrid_barrios2.json", encoding="UTF-8") as f:
-    #     madrid_barrios = json.load(f)
-
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
-    # st.write()
 
     folium.Choropleth(
         # topojson="objects.almeria_wm",
@@ -54,7 +48,6 @@ def trafico():
     )
 
     df2 = df2.set_index("fecha")
-    st.write(df2)
     option = st.selectbox(
         "Elija un mes para ver en detalle",
         (
@@ -73,6 +66,7 @@ def trafico():
             "12",
         ),
     )
-    df2 = df2.loc[df2.index.str.startswith(option)]
+    if option != "":
+        df2 = df2.loc[df2.index.str.contains("/" + option + "/", regex=True)]
     chart_data = df2
     st.line_chart(chart_data)
