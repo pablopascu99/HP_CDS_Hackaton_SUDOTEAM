@@ -7,9 +7,6 @@ from pages.seguridad import seguridad
 from pages.energias import paneles
 from pages.movilidad import bicis'''
 
-st.set_page_config(
-    page_title="Sudo Team",
-)
 
 hide_st_style = """
             <style>
