@@ -7,6 +7,14 @@ import numpy as np
 
 
 def seguridad():
+    agree = st.checkbox("Justificación")
+
+    if agree:
+        name = "multasCount.csv"
+        df = pd.read_csv(
+            "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
+        )
+        st.write(df)
 
     name = "accidentesTipo.csv"
     df = pd.read_csv(
