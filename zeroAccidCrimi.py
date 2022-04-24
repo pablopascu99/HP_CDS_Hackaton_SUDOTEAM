@@ -50,8 +50,11 @@ trafico = (spark.read.csv(datos_trafico[11],header=True, inferSchema=True, sep =
 
 multas.createOrReplaceTempView('Multas')
 
-result = spark.sql('''SELECT DISTINCT `HECHO-BOL`, COUNT(`HECHO-BOL`)OVER(PARTITION BY `HECHO-BOL`) AS Cantidad FROM Multas ORDER BY Cantidad DESC''')
-result.show(truncate=False)
+multasCount = spark.sql('''SELECT DISTINCT `HECHO-BOL`, COUNT(`HECHO-BOL`)OVER(PARTITION BY `HECHO-BOL`) AS Cantidad FROM Multas ORDER BY Cantidad DESC''')
+multasCount.show(truncate=False)
+
+multasCount.toPandas().to_csv('output/multasCount.csv', index=None, sep=';', mode='a')
+
 
 ##########################################################
 #####  Cantidad de accidentes por tipo y distrito  #######
@@ -62,13 +65,4 @@ accidentalidad.createOrReplaceTempView('Accidentes')
 accidenteCount = spark.sql('''SELECT DISTINCT cod_distrito, tipo_accidente, COUNT(*)OVER(PARTITION BY tipo_accidente, cod_distrito) AS Cantidad FROM Accidentes ORDER BY cod_distrito''')
 accidenteCount.show(truncate=False)
 
-accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';')
-
-##########################################################
-#####  Cantidad de accidentes por tipo y distrito  #######
-##########################################################
-
-trafico.createOrReplaceTempView('Trafico')
-
-traficoData = spark.sql('''SELECT carga FROM Trafico ORDER BY carga DESC''')
-traficoData.show(truncate=False)
+accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';', mode='a')
