@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 from pages.residuos import residuos
 from pages.trafico import trafico
@@ -37,6 +38,7 @@ with st.sidebar:
 
 
 if add_radio == "0. Introducción":
+    
     st.write(
         """
      👋 Bienvenido a nuestra propuesta de dashboard para la Final del CDS Challengue 2021/2022.
@@ -45,8 +47,10 @@ if add_radio == "0. Introducción":
 
      👈 En la barra lateral podrá ir navegando por los distintos KPIs.
 
-     🚀 Espero que """
+     🚀 Espero que les guste. Abajo tienen el QR por si se quiere consultar en el móvil"""
     )
+    components.html(
+'''<img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fshare.streamlit.io%2Fpablopascu99%2Fhp_cds_hackaton_sudoteam%2Ffrontend.py&chs=155x155&choe=UTF-8&chld=L|2' rel='nofollow' alt='qr code'>''')
 
 if add_radio == "1. Residuos":
     residuos()
