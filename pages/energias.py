@@ -15,9 +15,7 @@ def paneles():
         folium.Marker(
             location=[df.iloc[i]["Latitud"], df.iloc[i]["Longitud"]],
             icon=folium.DivIcon(
-                html=f"""
-            <div><img src="https://pngimg.com/uploads/solar_panel/small/solar_panel_PNG106.png" width=50vw height=50vw>
-                </div>"""
+                html=f
             ),
         ).add_to(m)
     folium_static(m)
