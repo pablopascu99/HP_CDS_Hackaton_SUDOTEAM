@@ -48,13 +48,17 @@ if add_radio == "0. Introducción":
 
      👈 En la barra lateral podrá ir navegando por los distintos KPIs.
 
-     🚀 Espero que les guste. Abajo tienen el QR por si se quiere consultar en el móvil"""
+     ⛏️ Tecnologias usadas: Python, Streamlit(React), PySpark, Github.
+
+     🚀 Espero que les guste. Abajo tienen el QR por si se quiere consultar en el móvil."""
     )
+
+    components.html(
+'''<blockquote><h1><i>Una solución que nos ayudará a ser la ciudad del mañana, centrados en los Ciudadanos, Empresas y Administraciones públicas.</i></h1></blockquote>''')
+    
     components.html(
 '''<img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fshare.streamlit.io%2Fpablopascu99%2Fhp_cds_hackaton_sudoteam%2Ffrontend.py&chs=155x155&choe=UTF-8&chld=L|2' rel='nofollow' alt='qr code'>''')
 
-    components.html(
-'''<blockquote><h1><i>Una solución que nos ayudará a ser la ciudad del mañana centrados en los Ciudadanos, Empresas y Administraciones públicas.</i></h1></blockquote>''')
 
 if add_radio == "1. Residuos":
     residuos()

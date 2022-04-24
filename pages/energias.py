@@ -20,13 +20,9 @@ def paneles():
                 </div>"""
             ),
         ).add_to(m)
-    with open("madrid_barrios.json", encoding="UTF-8") as f:
-        madrid_barrios = json.load(f)
-    # st.write(madrid_barrios)
 
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
-    # st.write(madrid_distritos)
 
     folium.Choropleth(
         # topojson="objects.almeria_wm",

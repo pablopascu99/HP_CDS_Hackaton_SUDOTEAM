@@ -1,7 +1,5 @@
 from cmath import nan
-from pyparsing import And
 import streamlit as st
-from query import densiConten
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
@@ -11,7 +9,6 @@ def residuos():
     contenedores = pd.read_csv('output/densidad_cubos_censo.csv', sep=';')
     x = contenedores["Distrito"].drop_duplicates()
     y = contenedores["Tipo"].drop_duplicates()
-    # densiConten()
     df = pd.DataFrame(np.zeros((17, 5)), index=x.to_numpy(), columns=y.to_numpy())
     for n in x:
         for m in y:
@@ -20,7 +17,6 @@ def residuos():
                 df[m][n]=value.values[0]
             else:
                 alertas.append("ALERTA: En "+n+" faltan contenedores de tipo "+m)
-    # st.write(df)
     for a in alertas:
         st.error(a)
 
@@ -70,7 +66,7 @@ def residuos():
             bordercolor='rgba(255, 255, 255, 0)'
         ),
         barmode='group',
-        bargap=0.15, # gap between bars of adjacent location coordinates.
-        bargroupgap=0.1 # gap between bars of the same location coordinate.
+        bargap=0.15, 
+        bargroupgap=0.1 
     )
     st.plotly_chart(fig)

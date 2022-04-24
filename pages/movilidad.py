@@ -2,13 +2,9 @@ import streamlit as st
 import pandas as pd
 from streamlit_folium import folium_static
 import folium
-from query import bicis_personas
-from query import estacionamiento
 import json
 
 def bicis():
-    # st.write(bicis_personas())
-    # st.write(estacionamiento())
     name = "dist_bicis.csv"
     df = pd.read_csv(
         "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
@@ -16,7 +12,8 @@ def bicis():
 
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
-    st.write("Densidad de bicis durante el año por distrito")
+
+    st.write('##### Densidad de bicis durante el año por distrito')
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=10.45)
     folium.Choropleth(
@@ -41,7 +38,8 @@ def bicis():
 
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
-    st.write("Densidad de peatones durante el año por distrito")
+
+    st.write('##### Densidad de peatones durante el año por distrito')
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=10.45)
     folium.Choropleth(
