@@ -106,3 +106,14 @@ zonasVerdeDistrito = zonasVerdes.groupBy("DISTRITO").sum("SUPERFICIE (ha)")
 zonasVerdeDistrito.show(truncate=False)
 
 zonasVerdeDistrito.toPandas().to_csv('output/zonasVerdeDistrito.csv', index=None, sep=';', mode='w')
+
+##########################################################
+#############  Cantidad taxis por barrio  ################
+##########################################################
+
+taxis.createOrReplaceTempView('taxis')
+
+taxisCount = spark.sql('''SELECT DISTINCT `Barrio`, COUNT(`Barrio`)OVER(PARTITION BY `Barrio`) AS Cantidad FROM taxis ORDER BY Cantidad DESC''')
+
+taxisCount.show(truncate=False)
+taxisCount.toPandas().to_csv('output/taxisCount.csv', encoding="utf-8", index=None, sep=';', mode='w')
