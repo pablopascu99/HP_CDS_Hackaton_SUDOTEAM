@@ -12,10 +12,10 @@ def calidad():
         "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
     )
     # df = df["DISTRITO"]
-    st.write(df["DISTRITO"])
-    st.write(df)
+    # st.write(df["DISTRITO"])
+    # st.write(df)
 
-    with open("madrid_distritos.json") as f:
+    with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
     st.write("Zonas verdes por distrito")
 
@@ -31,6 +31,6 @@ def calidad():
         fill_color="YlGn",
         fill_opacity=0.5,
         line_opacity=0.5,
-        legend_name="otra",
+        legend_name="Densidad de zonas verdes",
     ).add_to(m)
     folium_static(m)

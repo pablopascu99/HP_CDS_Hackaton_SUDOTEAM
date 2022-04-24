@@ -23,6 +23,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # st.title("Fase final: Sudo Team")
 
+st.sidebar.image: st.sidebar.image("sudo_team.png", use_column_width=True)
 
 sections = [
     "0. Introducción",
@@ -39,16 +40,17 @@ with st.sidebar:
     add_radio = st.radio("Índice", sections)
 
 
+
 if add_radio == "0. Introducción":
     st.write(
         """
-     👋 En esta web encontrará información de utilidad para distintos futuros servicios que puede ofrecer un banco.
+     👋 Bienvenido a nuestra propuesta de dashboard para la Final del CDS Challengue 2021/2022.
 
-     🌅 Esta información esta basada en datos de movimientos bancarios y el tiempo atmosférico de la región de Almeria en el año 2015.
+     🌅 Esta información esta basada en datos de movimientos ofrecidos por la organización.
 
      👈 En la barra lateral podrá ir navegando por los distintos KPIs.
 
-     🚀 Pulsando en el siguiente botón podrá actualizar las consultas Spark por si hay nuevos datos"""
+     🚀 Espero que """
     )
 
 if add_radio == "1. Residuos":
