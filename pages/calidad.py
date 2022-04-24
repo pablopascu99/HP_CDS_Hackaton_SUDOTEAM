@@ -8,12 +8,7 @@ import json
 
 def calidad():
     name = "zonasVerdeDistrito.csv"
-    df = pd.read_csv(
-        "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
-    )
-    # df = df["DISTRITO"]
-    # st.write(df["DISTRITO"])
-    # st.write(df)
+    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
 
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
