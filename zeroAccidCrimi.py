@@ -62,7 +62,7 @@ accidentalidad.createOrReplaceTempView('Accidentes')
 accidenteCount = spark.sql('''SELECT DISTINCT cod_distrito, tipo_accidente, COUNT(*)OVER(PARTITION BY tipo_accidente, cod_distrito) AS Cantidad FROM Accidentes ORDER BY cod_distrito''')
 accidenteCount.show(truncate=False)
 
-accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';', mode='a')
+accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';')
 
 ##########################################################
 #####  Cantidad de accidentes por tipo y distrito  #######
