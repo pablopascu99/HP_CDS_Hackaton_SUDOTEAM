@@ -15,11 +15,11 @@ def trafico():
     for i in range(0, len(df)):
         folium.Marker(
             location=[df.iloc[i]["Latitud"], df.iloc[i]["Longitud"]],
-            icon=folium.DivIcon(
-                html=f"""
-            <div><img src="https://www.pngrepo.com/png/48299/512/taxi.png" width="25" height="25">
-                </div>"""
-            ),
+            # icon=folium.DivIcon(
+            #     html=f"""
+            # <div><img src="https://www.pngrepo.com/png/48299/512/taxi.png" width="25" height="25">
+            #     </div>"""
+            # ),
         ).add_to(m)
 
     with open("madrid_barrios.json", encoding="UTF-8") as f:
