@@ -43,6 +43,8 @@ datos_trafico=['data\Trafico\Anthem_CTC_Traffic_012051.csv','data\Trafico\Anthem
 multas = (spark.read.csv(datos_multas[11],header=True, inferSchema=True, sep =";", encoding='Latin1'))
 accidentalidad = (spark.read.csv(datos[0],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
 trafico = (spark.read.csv(datos_trafico[11],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
+patinetes = (spark.read.csv(datos[1],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
+zonasVerdes = (spark.read.csv("data\SuperficieZonasVerdesDistritosCalles_2020.csv",header=True, inferSchema=True, sep =";", encoding='UTF-8'))
 
 ########################################################
 ############  Cantidad de multas por tipo  #############
@@ -66,3 +68,41 @@ accidenteCount = spark.sql('''SELECT DISTINCT cod_distrito, tipo_accidente, COUN
 accidenteCount.show(truncate=False)
 
 accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';', mode='w')
+
+##########################################################
+#######  Cantidad total de patinetes por distrito  #######
+##########################################################
+
+patinetesData = patinetes.groupBy("DISTRITO").sum("TOTAL") 
+patinetesData.show(truncate=False)
+
+patinetesData.createOrReplaceTempView('patinetesData')
+
+
+datos_censo = (spark.read.csv(datos_censo[11],header=True, inferSchema=True, sep =";", encoding='utf-8'))
+
+datos_censo.createOrReplaceTempView('Censo')
+
+dist_censo = spark.sql('''SELECT DISTINCT DESC_DISTRITO, (SUM(EspanolesHombres)OVER(PARTITION BY DESC_DISTRITO)  + SUM(EspanolesMujeres)OVER(PARTITION BY DESC_DISTRITO)  + SUM(ExtranjerosHombres)OVER(PARTITION BY DESC_DISTRITO)  + SUM(ExtranjerosMujeres)OVER(PARTITION BY DESC_DISTRITO) ) AS Censo FROM Censo ORDER BY DESC_DISTRITO''')
+
+for colname in dist_censo.columns:
+    dist_censo = dist_censo.withColumn(colname, fun.trim(fun.col(colname)))
+
+dist_censo.createOrReplaceTempView('dense_dist')
+
+dist_censo.show()
+
+patinetesDistrito = spark.sql('''SELECT DISTRITO, (`sum(TOTAL)`/Censo) AS patinetes FROM patinetesData JOIN dense_dist ON DISTRITO=DESC_DISTRITO ORDER BY patinetes ASC''')
+
+patinetesDistrito.show(truncate=False)
+
+patinetesDistrito.toPandas().to_csv('output/patinetesDistrito.csv', index=None, sep=';', mode='w')
+
+##########################################################
+#########  Cantidad zonas verdes por distrito  ###########
+##########################################################
+
+zonasVerdeDistrito = zonasVerdes.groupBy("DISTRITO").sum("SUPERFICIE (ha)") 
+zonasVerdeDistrito.show(truncate=False)
+
+zonasVerdeDistrito.toPandas().to_csv('output/zonasVerdeDistrito.csv', index=None, sep=';', mode='w')
