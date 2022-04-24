@@ -3,6 +3,7 @@ import pandas as pd
 from streamlit_folium import folium_static
 import folium
 import json
+import numpy as np
 
 
 def trafico():
@@ -22,13 +23,12 @@ def trafico():
             ),
         ).add_to(m)
 
-    with open("madrid_barrios.json", encoding="UTF-8") as f:
-        madrid_barrios = json.load(f)
-    # st.write(madrid_barrios)
+    # with open("madrid_barrios2.json", encoding="UTF-8") as f:
+    #     madrid_barrios = json.load(f)
 
     with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
-    # st.write(madrid_distritos)
+    # st.write()
 
     folium.Choropleth(
         # topojson="objects.almeria_wm",
@@ -44,3 +44,7 @@ def trafico():
         # legend_name="Densidad de bicis",
     ).add_to(m)
     folium_static(m)
+
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
+    st.line_chart(chart_data)
