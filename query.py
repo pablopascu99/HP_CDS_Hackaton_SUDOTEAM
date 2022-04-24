@@ -7,7 +7,7 @@ import pyspark.pandas as ps
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as fun
 
-spark = SparkSession.builder.master("local[*]").getOrCreate()
+
 
 datos=['data/Anthem_CTC_Accidentalidad.csv','data/Anthem_CTC_AsignaciónPatinetes.csv','data/Anthem_CTC_Bicicletas_Disponibilidad.csv',
 'data/Anthem_CTC_BicicletasAforo.csv','data/Anthem_CTC_Callejero.csv','data/Anthem_CTC_CallesEstacionamientoRegulado.csv',
@@ -33,7 +33,9 @@ datos=['data/Anthem_CTC_Accidentalidad.csv','data/Anthem_CTC_AsignaciónPatinete
 
 datos_ubicaciones=['']
 
-def contenedores():
+def densiConten():
+
+    spark = SparkSession.builder.master("local[*]").getOrCreate()
 
     datos_contenedores = (spark.read.csv(datos[7],header=True, inferSchema=True, sep =";", encoding='Latin1'))
 
@@ -59,11 +61,7 @@ def contenedores():
 
     dist_censo.show()
 
-    dense_conte = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor`, (Censo/Cantidad) AS Contenedores FROM dist_tipo JOIN dense_dist ON Distrito=DESC_DISTRITO ORDER BY Distrito ASC''')
-
-    dense_conte.createOrReplaceTempView('dense_conte')
-
-    dense_conte = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor` AS Tipo, (Censo/Cantidad) AS Contenedores FROM dist_tipo JOIN dense_dist ON Distrito=DESC_DISTRITO ORDER BY Distrito ASC''')
+    dense_conte = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor` AS Tipo, (Cantidad/Censo) AS Contenedores FROM dist_tipo JOIN dense_dist ON Distrito=DESC_DISTRITO ORDER BY Distrito ASC''')
 
     dense_conte.toPandas().to_csv('output/densidad_cubos_censo.csv', index=None, sep=';')
 
@@ -71,3 +69,16 @@ def contenedores():
 
     return(dense_conte.toPandas())
 
+def aforo():
+
+    spark = SparkSession.builder.master("local[*]").getOrCreate()
+    
+    datos_contenedores = (spark.read.csv(datos[10],header=True, inferSchema=True, sep =";", encoding='Latin1'))
+
+    datos_contenedores.createOrReplaceTempView('Aforopeat')
+
+    dist_tipo = spark.sql('''SELECT DISTINCT Distrito, `Tipo Contenedor`, Count(*)OVER(PARTITION BY `Tipo Contenedor`, Distrito) AS Cantidad FROM Aforopeat ORDER BY Distrito, `Tipo Contenedor` ASC''')
+
+    dist_tipo.createOrReplaceTempView('dist_tipo')
+
+    dist_tipo.show()

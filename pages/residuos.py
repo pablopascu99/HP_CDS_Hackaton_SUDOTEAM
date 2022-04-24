@@ -1,14 +1,14 @@
 from cmath import nan
 from pyparsing import And
 import streamlit as st
-from query import contenedores
+from query import densiConten
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 
 def residuos():
     contenedores = pd.read_csv('output/densidad_cubos_censo.csv', sep=';')
-    # st.write(contenedores)
+    # densiConten()
     x = contenedores["Distrito"].drop_duplicates()
     y = contenedores["Tipo"].drop_duplicates()
     df = pd.DataFrame(np.zeros((17, 5)), index=x.to_numpy(), columns=y.to_numpy())
