@@ -95,15 +95,24 @@ def bicis_personas():
 
     datos_peatones.createOrReplaceTempView('peatones')
 
-    dist_bicis = spark.sql('''SELECT DISTINCT DISTRITO, SUM(BICICLETAS)OVER(PARTITION BY DISTRITO) AS QT_BICIS FROM bicis''')
+    dist_bicis = spark.sql('''SELECT DISTINCT UPPER(DISTRITO) AS DISTRITO, SUM(BICICLETAS)OVER(PARTITION BY DISTRITO) AS QT_BICIS FROM bicis''')
 
     dist_bicis.createOrReplaceTempView('qt_bicis')
 
-    dist_peatones = spark.sql('''SELECT DISTINCT DISTRITO, SUM(PEATONES)OVER(PARTITION BY DISTRITO) AS QT_PEATONES FROM peatones''')
+    dist_peatones = spark.sql('''SELECT DISTINCT UPPER(DISTRITO) AS DISTRITO, SUM(PEATONES)OVER(PARTITION BY DISTRITO) AS QT_PEATONES FROM peatones''')
+
 
     dist_peatones.createOrReplaceTempView('qt_peatones')
-
-    
+    dist_peatones.toPandas().to_csv('output/dist_peatones.csv', index=None, sep=';')
+    dist_bicis.toPandas().to_csv('output/dist_bicis.csv', index=None, sep=';')
     dist_peatones.show()
 
     return(dist_bicis.toPandas())
+
+def estacionamiento():
+
+    spark = SparkSession.builder.master("local[*]").getOrCreate()
+
+    datos_bicis = (spark.read.csv(datos[5],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
+
+    return(datos_bicis.toPandas())
