@@ -6,7 +6,7 @@ import folium
 
 def paneles():
     name = "Anthem_CTC_InstalacionesFotovoltaicas2.csv"
-    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="latin1")
+    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
     # st.write(df)
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=11)
