@@ -11,6 +11,7 @@ def seguridad():
     agree = st.checkbox("Justificación")
 
     if agree:
+        st.write('##### Gráfico de tipo de infracciones y cantidad de ellas que se tramitan')
         name = "multasCount.csv"
         df = pd.read_csv(
             "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
@@ -26,7 +27,7 @@ def seguridad():
 
         st.pyplot(fig1)
 
-    
+    st.write('##### Gráfico de distritos y cantidad de aparcamiento rotacional que hay')
     name = "qt_plazas.csv"
     df = pd.read_csv(
         "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
@@ -54,7 +55,7 @@ def seguridad():
     df = pd.read_csv(
         "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
     )
-
+    st.write('##### Tipos de accidentes en los diferentes distritos')
     option = st.selectbox(
         "Qué tipo de accidente desea visualizar?",
         (

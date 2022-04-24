@@ -6,6 +6,7 @@ import json
 
 
 def calidad():
+    st.write('##### Zonas verdes por cantidad de habitantes en los distritos')
     name = "zonasVerdeDistrito.csv"
     df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
 
