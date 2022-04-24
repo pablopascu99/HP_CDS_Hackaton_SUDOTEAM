@@ -9,7 +9,7 @@ import numpy as np
 def trafico():
 
     name = "Anthem_CTC_Taxi_ReservaParadas.csv"
-    df = pd.read_csv("data/{}".format(name), header="infer", sep=";", encoding="UTF-8")
+    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=11)
 
