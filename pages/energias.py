@@ -16,7 +16,7 @@ def paneles():
             location=[df.iloc[i]["Latitud"], df.iloc[i]["Longitud"]],
             icon=folium.DivIcon(
                 html=f"""
-            <div><img src="https://pngimg.com/uploads/solar_panel/small/solar_panel_PNG106.png" width=50vw height=50vw>
+            <div><img src="https://pngimg.com/uploads/solar_panel/small/solar_panel_PNG106.png" width="25" height="25">
                 </div>"""
             ),
         ).add_to(m)
