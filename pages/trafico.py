@@ -73,6 +73,8 @@ def trafico():
             "12",
         ),
     )
-    df2 = df2.loc[df2.index.str.startswith(option)]
+    # df2 = df2.loc[df2.index.str.startswith(option)]
+    if option != "":
+        df2 = df2.loc[df2.index.str.contains("/" + option + "/", regex=True)]
     chart_data = df2
     st.line_chart(chart_data)

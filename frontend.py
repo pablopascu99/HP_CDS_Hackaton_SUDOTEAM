@@ -41,6 +41,7 @@ if add_radio == "0. Introducción":
     
     st.write(
         """
+        # Dashboard Sudo Team
      👋 Bienvenido a nuestra propuesta de dashboard para la Final del CDS Challengue 2021/2022.
 
      🌅 Esta información esta basada en datos de movimientos ofrecidos por la organización.
@@ -51,6 +52,9 @@ if add_radio == "0. Introducción":
     )
     components.html(
 '''<img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fshare.streamlit.io%2Fpablopascu99%2Fhp_cds_hackaton_sudoteam%2Ffrontend.py&chs=155x155&choe=UTF-8&chld=L|2' rel='nofollow' alt='qr code'>''')
+
+    components.html(
+'''<blockquote><h1><i>Una solución que nos ayudará a ser la ciudad del mañana centrados en los Ciudadanos, Empresas y Administraciones públicas.</i></h1></blockquote>''')
 
 if add_radio == "1. Residuos":
     residuos()
