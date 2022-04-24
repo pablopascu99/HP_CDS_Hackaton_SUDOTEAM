@@ -7,8 +7,7 @@ import json
 
 def paneles():
     name = "Anthem_CTC_InstalacionesFotovoltaicas2.csv"
-    df = pd.read_csv("output/{}".format(name), header="infer", sep=";")
-    st.write(df)
+    df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding = 'ISO-8859-1')
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=11)
 
