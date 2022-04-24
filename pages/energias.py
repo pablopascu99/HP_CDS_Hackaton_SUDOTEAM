@@ -6,6 +6,9 @@ import json
 
 
 def paneles():
+
+    st.write('##### Disposión de placas solares en Madrid')
+
     name = "Anthem_CTC_InstalacionesFotovoltaicas2.csv"
     df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding = 'ISO-8859-1')
 

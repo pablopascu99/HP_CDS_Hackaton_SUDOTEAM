@@ -6,7 +6,7 @@ import json
 
 
 def trafico():
-
+    st.write('##### Ubicación servicios públicos')
     name = "Anthem_CTC_Taxi_ReservaParadas.csv"
     df = pd.read_csv(
         "output/{}".format(name), header="infer", sep=";", encoding="UTF-8"
@@ -41,6 +41,8 @@ def trafico():
         # legend_name="Densidad de bicis",
     ).add_to(m)
     folium_static(m)
+
+    st.write('##### Letalidad en carretera por día')
 
     name2 = "letalidad_fecha.csv"
     df2 = pd.read_csv(
