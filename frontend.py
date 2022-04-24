@@ -6,6 +6,7 @@ from pages.calidad import calidad
 from pages.seguridad import seguridad
 from pages.energias import energias
 from pages.sostenibilidad import sostenibilidad
+from pages.movilidad import bicis
 
 st.set_page_config(
     page_title="Sudo Team",
@@ -33,6 +34,7 @@ sections = [
     "4. Seguridad civil",
     "5. Energías renovables",
     "6. Sostenibilidad",
+    "7. Movilidad y Poblacion",
 ]
 
 
@@ -70,3 +72,6 @@ if add_radio == "5. Energías renovables":
 
 if add_radio == "6. Sostenibilidad":
     sostenibilidad()
+
+if add_radio == "7. Movilidad y Poblacion":
+    bicis()

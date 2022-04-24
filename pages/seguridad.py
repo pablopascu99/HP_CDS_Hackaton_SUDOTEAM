@@ -39,7 +39,7 @@ def seguridad():
 
     df = df.where(df["tipo_accidente"] == option)
 
-    with open("madrid_distritos.json") as f:
+    with open("madrid_distritos.json", encoding="UTF-8") as f:
         madrid_distritos = json.load(f)
 
     m = folium.Map(location=[40.42, -3.70], zoom_start=10.45)

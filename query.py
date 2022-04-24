@@ -72,7 +72,7 @@ def densiConten():
 def aforo():
 
     spark = SparkSession.builder.master("local[*]").getOrCreate()
-    
+
     datos_contenedores = (spark.read.csv(datos[10],header=True, inferSchema=True, sep =";", encoding='Latin1'))
 
     datos_contenedores.createOrReplaceTempView('Aforopeat')
@@ -82,3 +82,28 @@ def aforo():
     dist_tipo.createOrReplaceTempView('dist_tipo')
 
     dist_tipo.show()
+
+def bicis_personas():
+
+    spark = SparkSession.builder.master("local[*]").getOrCreate()
+
+    datos_bicis = (spark.read.csv(datos[3],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
+
+    datos_peatones = (spark.read.csv(datos[10],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
+
+    datos_bicis.createOrReplaceTempView('bicis')
+
+    datos_peatones.createOrReplaceTempView('peatones')
+
+    dist_bicis = spark.sql('''SELECT DISTINCT DISTRITO, SUM(BICICLETAS)OVER(PARTITION BY DISTRITO) AS QT_BICIS FROM bicis''')
+
+    dist_bicis.createOrReplaceTempView('qt_bicis')
+
+    dist_peatones = spark.sql('''SELECT DISTINCT DISTRITO, SUM(PEATONES)OVER(PARTITION BY DISTRITO) AS QT_PEATONES FROM peatones''')
+
+    dist_peatones.createOrReplaceTempView('qt_peatones')
+
+    
+    dist_peatones.show()
+
+    return(dist_bicis.toPandas())
