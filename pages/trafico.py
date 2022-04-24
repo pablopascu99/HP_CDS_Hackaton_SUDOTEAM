@@ -4,9 +4,11 @@ from streamlit_folium import folium_static
 import folium
 import json
 import numpy as np
+from query import accidenteletal
 
 
 def trafico():
+
 
     name = "Anthem_CTC_Taxi_ReservaParadas.csv"
     df = pd.read_csv("output/{}".format(name), header="infer", sep=";", encoding="UTF-8")
@@ -45,6 +47,11 @@ def trafico():
     ).add_to(m)
     folium_static(m)
 
-    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    name2 = "letalidad_fecha.csv"
+    df2 = pd.read_csv("output/{}".format(name2), header="infer", sep=";", encoding="UTF-8")
 
+    st.write(df2)
+    df2 = df2.set_index('fecha')
+    chart_data = df2
     st.line_chart(chart_data)
+

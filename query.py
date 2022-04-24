@@ -103,3 +103,16 @@ def estacionamiento():
     datos_bicis = (spark.read.csv(datos[5],header=True, inferSchema=True, sep =";", encoding='UTF-8'))
 
     return(datos_bicis.toPandas())
+
+def accidenteletal():
+
+    spark = SparkSession.builder.master("local[*]").getOrCreate()
+
+    datos_accidente= (spark.read.csv(datos[0],header=True, inferSchema=True, sep =";", encoding='Latin1'))
+
+    datos_accidente.createOrReplaceTempView('accidentes')
+
+    # dist_tipo = spark.sql('''SELECT DISTINCT fecha COUNT(cod_lesividad) OVER (PARTITION BY fecha) as QT_mortalidad FROM accidentes WHERE cod_lesividad='3' ''')
+    dist_tipo = spark.sql('''SELECT fecha, count(*) from accidentes where cod_lesividad=3 OR cod_lesividad=4 group by fecha order by fecha''')
+
+    dist_tipo.toPandas().to_csv('output/letalidad_fecha.csv', index=None, sep=';')
