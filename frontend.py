@@ -1,11 +1,11 @@
 import streamlit as st
-'''
+
 from pages.residuos import residuos
 from pages.trafico import trafico
 from pages.calidad import calidad
 from pages.seguridad import seguridad
 from pages.energias import paneles
-from pages.movilidad import bicis'''
+from pages.movilidad import bicis
 
 
 hide_st_style = """
@@ -47,7 +47,7 @@ if add_radio == "0. Introducción":
 
      🚀 Espero que """
     )
-'''
+
 if add_radio == "1. Residuos":
     residuos()
 
@@ -64,4 +64,4 @@ if add_radio == "5. Energías renovables":
     paneles()
 
 if add_radio == "6. Movilidad y Poblacion":
-    bicis()'''
+    bicis()
