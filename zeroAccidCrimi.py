@@ -53,7 +53,7 @@ multas.createOrReplaceTempView('Multas')
 multasCount = spark.sql('''SELECT DISTINCT `HECHO-BOL`, COUNT(`HECHO-BOL`)OVER(PARTITION BY `HECHO-BOL`) AS Cantidad FROM Multas ORDER BY Cantidad DESC''')
 multasCount.show(truncate=False)
 
-multasCount.toPandas().to_csv('output/multasCount.csv', index=None, sep=';', mode='a')
+multasCount.toPandas().to_csv('output/multasCount.csv', index=None, sep=';', mode='w')
 
 
 ##########################################################
@@ -65,4 +65,4 @@ accidentalidad.createOrReplaceTempView('Accidentes')
 accidenteCount = spark.sql('''SELECT DISTINCT cod_distrito, tipo_accidente, COUNT(*)OVER(PARTITION BY tipo_accidente, cod_distrito) AS Cantidad FROM Accidentes ORDER BY cod_distrito''')
 accidenteCount.show(truncate=False)
 
-accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';', mode='a')
+accidenteCount.toPandas().to_csv('output/accidentesTipo.csv', index=None, sep=';', mode='w')
